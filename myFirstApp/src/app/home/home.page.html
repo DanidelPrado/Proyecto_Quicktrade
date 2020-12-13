@@ -10,11 +10,11 @@
   
   <ion-item>
     <ion-label>Nombre:</ion-label>
-    <ion-input></ion-input>
+    <ion-input clearInput></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Descripción:</ion-label>
-    <ion-input></ion-input>
+    <ion-input clearInput></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Categoría:</ion-label>
@@ -27,9 +27,9 @@
   </ion-item>
   <ion-item>
     <ion-label>Precio:</ion-label>
-    <ion-input type="number"></ion-input>
+    <ion-input [type]=type clearInput></ion-input>
   </ion-item>
-  <ion-list id="motor" *ngIf="ocultar_motor == false">
+  <ion-list *ngIf="ocultar_motor == false">
     <ion-item>
       <ion-label>Tipo de vehículo:</ion-label>
       <ion-select value="coche" okText="Okay" cancelText="Dismiss">
@@ -37,14 +37,34 @@
         <ion-select-option value="moto">Moto</ion-select-option>
       </ion-select>
     </ion-item>
-  </ion-list>
-  <ion-list id="inmobiliaria" *ngIf="ocultar_inmobiliaria == false">
     <ion-item>
-      <ion-label>Metros cuadrados vivienda:</ion-label>
-      <ion-input type="number"></ion-input>
+      <ion-label>Kilómetros:</ion-label>
+      <ion-input [type]=type clearInput></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Año:</ion-label>
+      <ion-input [type]=type clearInput></ion-input>
     </ion-item>
   </ion-list>
-  <ion-list id="tecnologia" *ngIf="ocultar_tecnologia == false">
+  <ion-list *ngIf="ocultar_inmobiliaria == false">
+    <ion-item>
+      <ion-label>Metros cuadrados vivienda:</ion-label>
+      <ion-input clearInput [type]=type ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Número de baños:</ion-label>
+      <ion-input [type]=type clearInput></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Número de habitaciones</ion-label>
+      <ion-input clearInput [type]=type ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Localidad:</ion-label>
+      <ion-input clearInput></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="ocultar_tecnologia == false">
     <ion-item>
       <ion-label>Estado del producto:</ion-label>
       <ion-select value="perfecto" okText="Okay" cancelText="Dismiss">

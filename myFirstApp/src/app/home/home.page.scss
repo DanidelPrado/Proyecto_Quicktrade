@@ -25,3 +25,18 @@
 #container a {
   text-decoration: none;
 }
+
+ion-select::part(text) {
+  color: #13e2d8;
+}
+
+ion-title {
+  color:black;
+  background-color: #42e6dd;
+  height: 58px;
+  text-align: center;
+}
+
+ion-input {
+  color: #13e2d8;
+}

@@ -15,6 +15,7 @@ export class HomePage {
   ocultar_tecnologia: boolean = true;
   ocultar_inmobiliaria: boolean = true;
   ocultar_motor: boolean = true;
+  type: string = "number";
   constructor() {}
 
 
