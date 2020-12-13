@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Productos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-item>
+    <ion-label>Nombre:</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Descripción:</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Categoría:</ion-label>
+    <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]='opcion' (ngModelChange)="cambiar_Oculto()">
+      <ion-select-option value="Tecnologia">{{tecnologia}}</ion-select-option>
+      <ion-select-option value="Hogar">{{hogar}}</ion-select-option>
+      <ion-select-option value="Inmobiliaria">{{inmobiliaria}}</ion-select-option>
+      <ion-select-option value="Motor">{{motor}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Precio:</ion-label>
+    <ion-input type="number"></ion-input>
+  </ion-item>
+  <ion-list id="motor" *ngIf="ocultar_motor == false">
+    <ion-item>
+      <ion-label>Tipo de vehículo:</ion-label>
+      <ion-select value="coche" okText="Okay" cancelText="Dismiss">
+        <ion-select-option value="coche">Coche</ion-select-option>
+        <ion-select-option value="moto">Moto</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list id="inmobiliaria" *ngIf="ocultar_inmobiliaria == false">
+    <ion-item>
+      <ion-label>Metros cuadrados vivienda:</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-list id="tecnologia" *ngIf="ocultar_tecnologia == false">
+    <ion-item>
+      <ion-label>Estado del producto:</ion-label>
+      <ion-select value="perfecto" okText="Okay" cancelText="Dismiss">
+        <ion-select-option value="perfecto">Perfecto estado</ion-select-option>
+        <ion-select-option value="usado">Usado</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>
