@@ -114,18 +114,5 @@
     <ion-card>
       <ion-button expand="block" (click)="insertarTecno()">Insertar</ion-button>
     </ion-card>
-    <ion-card *ngFor="let item of productos">
-      <ion-card-header>
-      <ion-card-title>{{item.nombre}} ({{item.precio}} €) </ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-label>Categoría: </ion-label>
-        {{item.categoria}} -
-        <ion-label>Descripción: </ion-label>
-        {{item.descripcion}} -
-        <ion-label>Estado del producto: </ion-label>
-        {{item.estado_producto}}
-      </ion-card-content>
-    </ion-card>
   </ion-list>
 </ion-content>

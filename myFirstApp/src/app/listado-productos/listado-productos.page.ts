@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IInmobiliaria, IMotor, IProducto, ITecnologia } from '../interfaces';
 import { ToastController } from '@ionic/angular';
+import { ProductosService } from '../services/productos.service';
 
 @Component({
   selector: 'app-listado-productos',
@@ -32,25 +33,12 @@ export class ListadoProductosPage implements OnInit {
   num_banyos: number;
   num_habitaciones: number;
   localidad: string;
-  productos: (IProducto | IMotor | IInmobiliaria | ITecnologia)[] = [
-    {
-      "id" : 1,
-      "nombre" : "Iphone 8",
-      "descripcion" : "Móvil iphone 8 de segunda mano de la marca Apple.",
-      "categoria" : "Tecnología",
-      "precio" : 350.,
-      "tipo_vehiculo": null,
-      "Km" : null,
-      "fabricacion": null,
-      "metros_cuadrados": null,
-      "num_banyos": null,
-      "num_habitaciones": null,
-      "localidad": null,
-      "estado_producto": "Usado"
-    }
-  ];
+  productos: (IProducto | IMotor | IInmobiliaria | ITecnologia)[];
+ 
 
-  constructor(private _toastCtrl : ToastController) {}
+  constructor(private _toastCtrl : ToastController, private _productosService : ProductosService) {
+
+  }
 
 
   cambiar_Oculto() : void {
@@ -136,6 +124,7 @@ export class ListadoProductosPage implements OnInit {
   }
 
   ngOnInit() {
+    this.productos = this._productosService.getProductos();
   }
 
 }
