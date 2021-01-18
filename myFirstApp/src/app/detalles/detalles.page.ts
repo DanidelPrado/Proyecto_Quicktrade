@@ -16,11 +16,11 @@ export class DetallesPage implements OnInit {
   ngOnInit() {
     this.id= +this._activatedRoute.snapshot.paramMap.get('id');
     console.log("he recibido un "+this.id);
-    let res = this._productosService.getProducto(this.id);
+    /*let res = this._productosService.getProducto(this.id);
     console.log("El nombre es " +res.nombre);
     console.log("La descripción es " +res.descripcion);
     console.log("La categoria es " +res.categoria);
-    console.log("El precio es " +res.precio);
+    console.log("El precio es " +res.precio);*/
   }
 
 }

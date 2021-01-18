@@ -33,7 +33,7 @@ export class ListadoProductosPage implements OnInit {
   num_banyos: number;
   num_habitaciones: number;
   localidad: string;
-  productos: (IProducto | IMotor | IInmobiliaria | ITecnologia)[];
+  productos: (IProducto | IMotor | IInmobiliaria | ITecnologia)[] = [];
  
 
   constructor(private _toastCtrl : ToastController, private _productosService : ProductosService) {
@@ -124,7 +124,15 @@ export class ListadoProductosPage implements OnInit {
   }
 
   ngOnInit() {
-    this.productos = this._productosService.getProductos();
+    //this.productos = this._productosService.getProductos();
+    let ref = this._productosService.getProductos();
+    ref.once("value", snapshot => {
+      snapshot.forEach(child => {
+        let value = child.val();
+        this.productos.push(value);
+        console.log("he encontrado " + child.val().nombre);
+      })
+    })
   }
 
 }
