@@ -22,3 +22,8 @@ export interface IInmobiliaria extends IProducto{
 export interface ITecnologia extends IProducto{
     "estado_producto": string
 }
+
+export interface IMeGusta{
+    "id_usuario": number,
+    "nombre_prod" : string
+}

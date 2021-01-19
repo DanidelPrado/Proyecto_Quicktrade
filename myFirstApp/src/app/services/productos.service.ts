@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { AngularFireDatabase } from "@angular/fire/database";
-import { IInmobiliaria, IMotor, IProducto, ITecnologia } from '../interfaces';
+import { IInmobiliaria, IMeGusta, IMotor, IProducto, ITecnologia } from '../interfaces';
 
 @Injectable()
 export class ProductosService{
@@ -48,7 +48,7 @@ export class ProductosService{
 
     constructor(private _db: AngularFireDatabase){}
 
-    setProductos(productos: (IProducto | IMotor | IInmobiliaria | ITecnologia)){
+    setProductos(productos: (IProducto | IMotor | IInmobiliaria | ITecnologia | IMeGusta)){
         let ref = this._db.database.ref("Productos");
         ref.push(productos);
     }
@@ -57,4 +57,13 @@ export class ProductosService{
       let ref = this._db.database.ref("Productos");
       return ref;
   }
+// Examen
+  setMeGustas(meGusta: IMeGusta){
+    let ref = this._db.database.ref("Me_Gusta");
+    ref.push(meGusta);
+}
+  getMeGustas() : firebase.default.database.Reference{
+    let ref = this._db.database.ref("Me_Gusta");
+    return ref;
+}
 }

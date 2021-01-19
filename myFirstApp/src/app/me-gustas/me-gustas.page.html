@@ -1,0 +1,20 @@
+<!-- Examen !-->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Hay {{megustas.length}} Me Gusta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of megustas">
+    <ion-card-header>
+    <ion-card-title>TE GUSTA</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Nombre del producto: </ion-label>
+      {{item.nombre_prod}} -
+      <ion-label>Id Usuario: </ion-label>
+      {{item.id_usuario}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

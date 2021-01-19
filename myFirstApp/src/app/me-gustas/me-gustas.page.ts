@@ -1,17 +1,19 @@
+// Examen
 import { Component, OnInit } from '@angular/core';
 import { IInmobiliaria, IMeGusta, IMotor, IProducto, ITecnologia } from '../interfaces';
 import { ToastController } from '@ionic/angular';
 import { ProductosService } from '../services/productos.service';
 
-
-
 @Component({
-  selector: 'app-listado-productos',
-  templateUrl: './listado-productos.page.html',
-  styleUrls: ['./listado-productos.page.scss'],
+  selector: 'app-me-gustas',
+  templateUrl: './me-gustas.page.html',
+  styleUrls: ['./me-gustas.page.scss'],
 })
-export class ListadoProductosPage implements OnInit {
+export class MeGustasPage implements OnInit {
 
+  id_usuario : number;
+  nombre_prod : string;
+  megustas: IMeGusta[] = [];
   tecnologia : string = "Tecnologia";
   hogar : string = "Hogar";
   inmobiliaria : string = "Inmobiliaria";
@@ -116,7 +118,7 @@ export class ListadoProductosPage implements OnInit {
         this.presentToast();   
 
   }
-  // Examen
+  
   gustar(){
     
     let mg: IMeGusta={
@@ -127,7 +129,7 @@ export class ListadoProductosPage implements OnInit {
     this._productosService.setMeGustas(mg); 
     this.presentToast();
   }
-  // Examen
+  
   async presentToast() {
     const toast = await this._toastCtrl.create({
       message: 'Se ha añadido a los productos que te gustan.',
@@ -139,12 +141,12 @@ export class ListadoProductosPage implements OnInit {
 
   ngOnInit() {
     //this.productos = this._productosService.getProductos();
-    let ref = this._productosService.getProductos();
+    let ref = this._productosService.getMeGustas();
     ref.once("value", snapshot => {
       snapshot.forEach(child => {
         let value = child.val();
-        this.productos.push(value);
-        console.log("he encontrado " + child.val().nombre);
+        this.megustas.push(value);
+        console.log("he encontrado " + child.val().nombre_prod);
       })
     })
   }

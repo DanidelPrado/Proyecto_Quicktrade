@@ -18,5 +18,7 @@
       {{item.estado_producto}}
     </ion-card-content>
     <ion-button expand="block" [routerLink]="['/detalles/',item.id]" routerDirection="forward">Detalles</ion-button>
+    <!-- Examen !-->
+    <ion-button expand="block" (click)="gustar()">Me gusta</ion-button>
   </ion-card>
 </ion-content>
